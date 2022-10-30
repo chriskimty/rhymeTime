@@ -1,7 +1,7 @@
-//Imports
+//Import Components
 import RhymeMe from "./RhymeMe";
+
 const Forms = (props) => {
-    
     return (
         <div>
             <form onSubmit={props.handleWordInput}>
@@ -17,7 +17,12 @@ const Forms = (props) => {
                   onClick={props.handleWordInput}
                   type="submit">rhyme!</button>
         </form>
-        <RhymeMe userInput={props.userInput} rhymes={props.rhymes} />
+        {
+          props.rhymes.length > 0
+            ? <RhymeMe userInput={props.userInput} rhymes={props.rhymes} handleRemove={props.handleRemove} />
+            : null
+        }
+        
         </div>
     )
 }
