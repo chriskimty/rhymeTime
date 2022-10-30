@@ -19,7 +19,8 @@ const Forms = (props) => {
         </form>
         {
           props.rhymes.length > 0
-            ? <RhymeMe userInput={props.userInput} rhymes={props.rhymes} handleRemove={props.handleRemove} />
+            ? <RhymeMe userInput={props.userInput} rhymes={props.rhymes}
+              allRhymes={props.allRhymes} handleRemove={props.handleRemove} />
             : null
         }
         

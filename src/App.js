@@ -9,7 +9,9 @@ import Footer from './components/Footer'
 const App = () => {
   // set state to store list of rhymes/API data
   const [rhymes, setRhymes] = useState([]); 
-  // add another state for allRhymes
+
+  // state for all Rhymes
+  const [allRhymes, setAllRhymes] = useState([]);
 
   // set state for user input search word 
   const [userInput, setUserInput] = useState('');
@@ -18,7 +20,6 @@ const App = () => {
   const handleWordInput = (event) => {
     setUserInput(userInput);
     event.preventDefault();
-    console.log("forms button has been clicked")
   
     const API_KEY = process.env.REACT_APP_WORDS_API_KEY;
     //API is called when function is run (i.e. form is submitted)
@@ -29,10 +30,9 @@ const App = () => {
         'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
       },
     }).then((res) => {
-      //displays only the first 15 words on the screen
       setRhymes(res.data.rhymes.all.slice(0, 15))
-
-      // setAllRhymes and have the entire thing 
+      
+      setAllRhymes(res.data.rhymes.all)
     })
   }
 
@@ -53,8 +53,10 @@ const App = () => {
             userInput={userInput}
             setUserInput={setUserInput}
             rhymes={rhymes}
+            allRhymes={allRhymes}
             // "prop drilling"
             handleRemove={handleRemove}
+
           />
           </div>            
       </header> 
