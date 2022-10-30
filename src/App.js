@@ -23,7 +23,7 @@ const App = () => {
     const API_KEY = process.env.REACT_APP_WORDS_API_KEY;
     //API is called when function is run (i.e. form is submitted)
     axios({
-      url: `https://wordsapiv1.p.rapidapi.com/words/${userInput}/rhymes`,
+      url: `https://wordsapiv1.p.rapidapi.com/words/${userInput}/rhymes?rapidapi-key=${API_KEY}`,
       headers: {
         'X-RapidAPI-Key': API_KEY,
         'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
