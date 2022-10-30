@@ -1,46 +1,29 @@
 //Import 
-// import { useState } from 'react';
-import uuid from 'react-uuid';
+import { useState } from 'react';
+import RhymeList from './RhymeList';
+import AllRhymeList from './AllRhymeList';
 
 const RhymeMe = (props) => {
-    // const [moreRhymes, setMoreRhymes] = useState(props.rhymes);
-    // const showMoreRhymes = () => {
-    //     setMoreRhymes(moreRhymes)
-    //     return(props.rhymes)
-    // }
+    const [isShown, setIsShown] = useState(false);
+  
+    const handleClick = (event) => {
+        setIsShown(current => !current);
+    }
 
     return (
         <section className="rhymeMe">
             
           <h3>"{props.userInput}" rhymes with:</h3>
             <ul className="wordsContainer">
-                {props.rhymes.slice(0,15).map((rhymeBox) => {
-                    return (
-                        <li key={uuid()}>{rhymeBox}
-                        </li>)
-                })}
+                <RhymeList allRhymes={props.allRhymes}/>
                 
-
-                <button onClick=
-                    {props.allRhymes.map((rhymeBox) => {
-                    return (
-                        <li key={uuid()}>{rhymeBox}
-                        </li>)
-                })}
-                >more rhymes</button>
+                <button onClick={handleClick}>more rhymes</button>
+                {isShown && <AllRhymeList allRhymes={props.allRhymes} />}
             </ul>
+
             {/* unmounts RhymeMe component from display  */}
             <button onClick={props.handleRemove}>new word!</button>
 
-            {/* displays all Rhymes
-            <button onClick={showMoreRhymes}>
-                {
-                    props.rhymes.length > 0 
-                        ?  <ul className="wordsContainer"><li key={uuid()}>{moreRhymes}</li></ul>
-                        : null
-                }
-                see all rhymes!
-            </button> */}
         </section> 
     )
 }

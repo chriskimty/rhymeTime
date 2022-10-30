@@ -30,7 +30,7 @@ const App = () => {
         'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
       },
     }).then((res) => {
-      setRhymes(res.data.rhymes.all.slice(0, 15))
+      setRhymes(res.data.rhymes.all.slice(0,15))
       
       setAllRhymes(res.data.rhymes.all)
     })
