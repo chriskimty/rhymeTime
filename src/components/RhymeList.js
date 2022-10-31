@@ -1,14 +1,15 @@
-import uuid from "react-uuid";
+import uuid from "react-uuid"
 
-const RhymeList = (props) => {
-    return (
+function RhymeList({noslice, allRhymes}){
+    return(
     <>
-        {
-            props.allRhymes.slice(0,15).map((rhymeBox) => {
-                return (
-                    <li key={uuid()}>{rhymeBox}</li>
-            )
-        })}
-    </>)
+        {allRhymes.slice(0,12)
+        .map((rhymeBox) => {
+        return (
+            <li key={uuid()}>{rhymeBox}
+            </li>)
+    })}
+</>)
 }
+
 export default RhymeList;

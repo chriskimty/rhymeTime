@@ -5,7 +5,7 @@ const Forms = (props) => {
     return (
         <div>
             <form onSubmit={props.handleWordInput}>
-                <label htmlFor="userInput">it's time to rhyme...</label>
+                <label htmlFor="userInput" className="visuallyHidden">Type a single word you would like to rhyme</label>
                 <input
                   type="userInput"
                   name="userInput"
@@ -18,8 +18,8 @@ const Forms = (props) => {
                   type="submit">rhyme!</button>
         </form>
         {
-          props.rhymes.length > 0
-            ? <RhymeMe userInput={props.userInput} rhymes={props.rhymes} allRhymes={props.allRhymes} handleRemove={props.handleRemove} />
+          props.allRhymes.length > 0
+            ? <RhymeMe userInput={props.userInput} allRhymes={props.allRhymes} handleRemove={props.handleRemove} />
             : null
         }
         

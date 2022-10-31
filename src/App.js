@@ -8,9 +8,6 @@ import Footer from './components/Footer'
 
 const App = () => {
   // set state to store list of rhymes/API data
-  const [rhymes, setRhymes] = useState([]); 
-
-  // state for all Rhymes
   const [allRhymes, setAllRhymes] = useState([]);
 
   // set state for user input search word 
@@ -30,7 +27,6 @@ const App = () => {
         'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
       },
     }).then((res) => {
-      setRhymes(res.data.rhymes.all.slice(0,15))
       
       setAllRhymes(res.data.rhymes.all)
     })
@@ -38,7 +34,7 @@ const App = () => {
 
    //function to remove component on click
   const handleRemove = (event) => {
-    setRhymes("");
+    setAllRhymes("");
     setUserInput("");
   };
 
@@ -52,11 +48,8 @@ const App = () => {
             handleWordInput={handleWordInput}
             userInput={userInput}
             setUserInput={setUserInput}
-            rhymes={rhymes}
             allRhymes={allRhymes}
-            // "prop drilling"
             handleRemove={handleRemove}
-
           />
           </div>            
       </header> 
