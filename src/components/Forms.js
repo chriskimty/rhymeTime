@@ -2,6 +2,9 @@
 import RhymeMe from "./RhymeMe";
 
 const Forms = (props) => {
+  
+  const isAnonymous = true;
+
     return (
         <div>
             <form onSubmit={props.handleWordInput}>
@@ -13,9 +16,10 @@ const Forms = (props) => {
                   onChange={(event) => props.setUserInput(event.target.value)}
                   placeholder='Try "pickle"'
                   required />
-                <button
-                  onClick={props.handleWordInput}
-                  type="submit">rhyme!</button>
+           <button
+            onClick={props.handleWordInput}
+            type="submit">rhyme!</button>
+          
         </form>
         {
           props.allRhymes.length > 0

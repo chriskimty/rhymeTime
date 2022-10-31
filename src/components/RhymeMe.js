@@ -5,7 +5,7 @@ import AllRhymeList from './AllRhymeList';
 const RhymeMe = (props) => {
     const [isShown, setIsShown] = useState(false);
 
-    const handleClick = event => {
+    const handleMoreRhymes = (event) => {
       setIsShown(current => !current);
     }
 
@@ -18,11 +18,15 @@ const RhymeMe = (props) => {
                 
                 {isShown && <AllRhymeList allRhymes={props.allRhymes}/>}
             </ul>
-            <button onClick={handleClick}>show me more rhymes!</button>
+        <button onClick={(handleMoreRhymes)}>
+          {
+            isShown
+              ? "show me less rhymes"
+              : "show me more rhymes!"
+          }
+        </button>
 
             <button onClick={props.handleRemove}>rhyme a new word!</button>
-
-
         </section> 
     )
 }

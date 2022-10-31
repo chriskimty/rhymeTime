@@ -17,6 +17,8 @@ const App = () => {
   const handleWordInput = (event) => {
     setUserInput(userInput);
     event.preventDefault();
+    // disables rhyme button after initial use
+    event.currentTarget.disabled = true;
   
     const API_KEY = process.env.REACT_APP_WORDS_API_KEY;
     //API is called when function is run (i.e. form is submitted)
@@ -32,10 +34,12 @@ const App = () => {
     })
   }
 
-   //function to remove component on click
+  //function to remove component on click
   const handleRemove = (event) => {
     setAllRhymes("");
     setUserInput("");
+    // hard refresh to initial page
+    window.location.reload(false);
   };
 
   return (
