@@ -2,8 +2,6 @@
 import RhymeMe from "./RhymeMe";
 
 const Forms = (props) => {
-  
-  const isAnonymous = true;
 
     return (
         <div>
