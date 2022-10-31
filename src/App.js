@@ -8,8 +8,7 @@ import Footer from './components/Footer'
 
 const App = () => {
   // set state to store list of rhymes/API data
-  const [rhymes, setRhymes] = useState([]); 
-  // add another state for allRhymes
+  const [allRhymes, setAllRhymes] = useState([]);
 
   // set state for user input search word 
   const [userInput, setUserInput] = useState('');
@@ -18,28 +17,29 @@ const App = () => {
   const handleWordInput = (event) => {
     setUserInput(userInput);
     event.preventDefault();
-    console.log("forms button has been clicked")
+    // disables rhyme button after initial use
+    event.currentTarget.disabled = true;
   
     const API_KEY = process.env.REACT_APP_WORDS_API_KEY;
     //API is called when function is run (i.e. form is submitted)
     axios({
-      url: `https://wordsapiv1.p.rapidapi.com/words/${userInput}/rhymes`,
+      url: `https://wordsapiv1.p.rapidapi.com/words/${userInput}/rhymes?rapidapi-key=${API_KEY}`,
       headers: {
         'X-RapidAPI-Key': API_KEY,
         'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
       },
     }).then((res) => {
-      //displays only the first 15 words on the screen
-      setRhymes(res.data.rhymes.all.slice(0, 15))
-
-      // setAllRhymes and have the entire thing 
+      
+      setAllRhymes(res.data.rhymes.all)
     })
   }
 
-   //function to remove component on click
+  //function to remove component on click
   const handleRemove = (event) => {
-    setRhymes("");
+    setAllRhymes("");
     setUserInput("");
+    // hard refresh to initial page
+    window.location.reload(false);
   };
 
   return (
@@ -52,8 +52,7 @@ const App = () => {
             handleWordInput={handleWordInput}
             userInput={userInput}
             setUserInput={setUserInput}
-            rhymes={rhymes}
-            // "prop drilling"
+            allRhymes={allRhymes}
             handleRemove={handleRemove}
           />
           </div>            

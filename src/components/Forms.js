@@ -2,10 +2,13 @@
 import RhymeMe from "./RhymeMe";
 
 const Forms = (props) => {
+  
+  const isAnonymous = true;
+
     return (
         <div>
             <form onSubmit={props.handleWordInput}>
-                <label htmlFor="userInput">it's time to rhyme...</label>
+                <label htmlFor="userInput" className="visuallyHidden">Type a single word you would like to rhyme</label>
                 <input
                   type="userInput"
                   name="userInput"
@@ -13,13 +16,14 @@ const Forms = (props) => {
                   onChange={(event) => props.setUserInput(event.target.value)}
                   placeholder='Try "pickle"'
                   required />
-                <button
-                  onClick={props.handleWordInput}
-                  type="submit">rhyme!</button>
+           <button
+            onClick={props.handleWordInput}
+            type="submit">rhyme!</button>
+          
         </form>
         {
-          props.rhymes.length > 0
-            ? <RhymeMe userInput={props.userInput} rhymes={props.rhymes} handleRemove={props.handleRemove} />
+          props.allRhymes.length > 0
+            ? <RhymeMe userInput={props.userInput} allRhymes={props.allRhymes} handleRemove={props.handleRemove} />
             : null
         }
         
