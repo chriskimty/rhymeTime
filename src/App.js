@@ -1,5 +1,6 @@
 import './App.css';
-import { useState } from 'react';
+import clock from './assets/logo.svg'
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 //Import components
@@ -38,27 +39,48 @@ const App = () => {
   const handleRemove = (event) => {
     setAllRhymes("");
     setUserInput("");
-    // hard refresh to initial page
+    // reload on initial page to clear saved state
     window.location.reload(false);
   };
 
+  //Loading Screen
+  const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+        }, 1100)
+    }, [])
+
   return (
     <div className="App">
-      <header>
-          <div className="wrapper">
-              <h1>Rhyme Time ⏰</h1>
-              <h2>Enter a word you would like to rhyme!</h2>
-          <Forms
-            handleWordInput={handleWordInput}
-            userInput={userInput}
-            setUserInput={setUserInput}
-            allRhymes={allRhymes}
-            handleRemove={handleRemove}
-          />
-          </div>            
-      </header> 
-         
-      <Footer />
+      {
+        loading
+          ? <div className="logoContainer">
+              <img src={clock} className="logo" alt="logo" />
+          </div>
+          : <>
+              <header>
+                <div className="wrapper landing">
+                <h1>
+                  <img src={clock} className="small" alt="small clock"/>rhymeTime
+                  </h1>
+                  <h2>Enter a word you would like to rhyme:</h2>
+                  <Forms
+                    handleWordInput={handleWordInput}
+                    userInput={userInput}
+                    setUserInput={setUserInput}
+                    allRhymes={allRhymes}
+                    handleRemove={handleRemove}
+                  />
+                  </div>            
+              </header> 
+              <Footer />
+            </>
+      }
+
+      
     </div>
   );
 }

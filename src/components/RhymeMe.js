@@ -21,12 +21,12 @@ const RhymeMe = (props) => {
         <button onClick={(handleMoreRhymes)}>
           {
             isShown
-              ? "show me less rhymes"
-              : "show me more rhymes!"
+              ? "less rhymes"
+              : "more rhymes"
           }
         </button>
 
-            <button onClick={props.handleRemove}>rhyme a new word!</button>
+            <button onClick={props.handleRemove}>new word</button>
         </section> 
     )
 }
