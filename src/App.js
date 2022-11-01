@@ -13,13 +13,16 @@ const App = () => {
 
   // set state for user input search word 
   const [userInput, setUserInput] = useState('');
+
+  //set state for error handling
+  const [error, setError] = useState(null);
   
   // function to handle word input
   const handleWordInput = (event) => {
     setUserInput(userInput);
     event.preventDefault();
-    // disables rhyme button after initial use
-    event.currentTarget.disabled = true;
+    // disables rhyme button after initial use... but I don't want this because of the possible error. However, if I make call in UserRhymeSection and then RhymeMe is no longer child of Forms, this might fix issue.
+    // event.currentTarget.disabled = true;
   
     const API_KEY = process.env.REACT_APP_WORDS_API_KEY;
     //API is called when function is run (i.e. form is submitted)
@@ -29,10 +32,15 @@ const App = () => {
         'X-RapidAPI-Key': API_KEY,
         'X-RapidAPI-Host': 'wordsapiv1.p.rapidapi.com'
       },
-    }).then((res) => {
-      
-      setAllRhymes(res.data.rhymes.all)
     })
+      .then((res) => {
+        if (res.data.rhymes.all === undefined) {
+          throw Error ('Please enter a valid word and try again!')
+        }
+        setAllRhymes(res.data.rhymes.all)
+    }).catch((err => {
+        setError(err.message)
+    }))
   }
 
   //function to remove component on click
@@ -73,6 +81,8 @@ const App = () => {
                     setUserInput={setUserInput}
                     allRhymes={allRhymes}
                     handleRemove={handleRemove}
+                    error={error}
+                    setError={setError}
                   />
                   </div>            
               </header> 

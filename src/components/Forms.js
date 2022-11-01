@@ -16,11 +16,15 @@ const Forms = (props) => {
                 <button
                     onClick={props.handleWordInput}
                     type="submit">rhyme!</button>
+                
+                {/* Displays error message*/}
+                {props.error && <div>{props.error}</div>}
           
         </form>
         {
           props.allRhymes.length > 0
-            ? <RhymeMe userInput={props.userInput} allRhymes={props.allRhymes} handleRemove={props.handleRemove} />
+            ? <RhymeMe userInput={props.userInput} allRhymes={props.allRhymes} handleRemove={props.handleRemove} error={props.error}
+                    setError={props.setError} />
             : null
         }
         

@@ -11,7 +11,6 @@ const RhymeMe = (props) => {
 
     return (
         <section className="rhymeMe">
-
           <h3>"{props.userInput}" rhymes with:</h3>
             <ul className="wordsContainer">
                 <RhymeList allRhymes={props.allRhymes}/>
