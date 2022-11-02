@@ -16,9 +16,9 @@ const Forms = (props) => {
                         onChange={(event) => props.setUserInput(event.target.value)}
                         placeholder='Try "pickle"'
                         required />
-                    <button
+                    <button className = "submit"
                         onClick={props.handleWordInput}
-                        type="submit">rhyme!</button>
+                        type="submit">submit</button>
                     
                     {/* Displays error message upon invalid input*/}
                     {props.error && <div>{props.error}</div>}

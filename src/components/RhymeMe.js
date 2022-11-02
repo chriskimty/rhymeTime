@@ -17,14 +17,14 @@ const RhymeMe = (props) => {
                 
                 {isShown && <AllRhymeList allRhymes={props.allRhymes}/>}
             </ul>
-        <button onClick={(handleMoreRhymes)}>
+        <button onClick={(handleMoreRhymes)} className="rhymeMeButton">
           {
             isShown
               ? "less rhymes"
               : "more rhymes"
           }
         </button>
-            <button onClick={props.handleRemove}>new word</button>
+            <button onClick={props.handleRemove} className="rhymeMeButton">new word</button>
         </section> 
     )
 }
