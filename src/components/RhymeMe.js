@@ -11,7 +11,7 @@ const RhymeMe = (props) => {
 
     return (
         <section className="rhymeMe">
-          <h3>"{props.userInput}" rhymes with:</h3>
+          <h2>"{props.userInput}" rhymes with:</h2>
             <ul className="wordsContainer">
                 <RhymeList allRhymes={props.allRhymes}/>
                 
@@ -24,7 +24,6 @@ const RhymeMe = (props) => {
               : "more rhymes"
           }
         </button>
-
             <button onClick={props.handleRemove}>new word</button>
         </section> 
     )
