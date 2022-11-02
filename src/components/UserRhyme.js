@@ -57,7 +57,8 @@ const UserRhyme = () => {
                 userInput={userInput}
                 setUserInput={setUserInput}
                 error={error}
-                validWord={validWord} 
+                validWord={validWord}
+                allRhymes={allRhymes}
             />
             {
          allRhymes.length > 0
