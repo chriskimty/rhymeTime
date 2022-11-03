@@ -8,23 +8,25 @@ import UserRhyme from './UserRhyme'
 import Footer from './Footer'
 
 const LandingPage = () => {
+    // set state for loading
     const [loading, setLoading] = useState(true);
     return (
         <>
             {
+            // runs loading page, then displays landing page
                 loading
                     ? <Loading setLoading={setLoading} />
                     : 
                     <div className="landing">
                         <nav>
-                            <div className="wrapper">
+                            <div className="wrapper navBar">
                                 <Link to = "/">
                                     <h3>rhyme
                                         <img src={clock} className="tiny" alt="clock logo" />
                                     </h3>
                                     </Link>
                                     {/* <ul> */}
-                                        {/* Links for the following two apps are COMING SOON */}
+                                        {/* Links for additional two apps are COMING SOON */}
                                         {/* <li>cinnonym</li>
                                         <li>antonymph</li>
                                     </ul> */}

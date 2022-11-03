@@ -12,9 +12,3 @@ code {
     monospace;
 }
 
-@font-face {
-  font-family: "drawrite";
-  src: local("drawrite"),
-  url("./fonts/drawrite/Drawrite.ttf") format("truetype");
-  font-weight: normal;
-}

@@ -7,8 +7,17 @@ html { box-sizing: border-box;}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
-/* GOOGLE FONTS IMPORT  */
-@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Lato:wght@300;400&display=swap');
+/* IMPORTING FONTS  */
+/* Dosis: bodyFont (google fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+
+/* Drawrite: headingFont (downloaded font) */
+@font-face {
+  font-family: "drawrite";
+  src: local("drawrite"),
+  url("./fonts/drawrite/Drawrite.ttf") format("truetype");
+  font-weight: normal;
+}
 
 /* BASE STYLES */
 
@@ -17,14 +26,12 @@ html { box-sizing: border-box;}
     --primaryColor: #fabe9c;
     --secondaryColor: #0a0a0a;
     --tertiaryColor: #a8d0db;
-    /* --quaternaryColor: #e49273; */
-    --red: #F2484B;
+    --accentColor: #F2484B;
     --headingFont: 'drawrite';
-    --bodyFont: 'Lato', sans-serif;
-    --miscFont: 'Arvo', serif;
+    --bodyFont: 'Dosis', sans-serif;
 }
 
-/* Nightmode TBA */
+/* Nightmode - COMING SOON */
 .nightMode {
   --primaryColor: #2b4570;
   --secondaryColor: #f8f2f2;
@@ -86,10 +93,10 @@ button {
 }
 
 a:hover {
-  color: var(--red);
+  color: var(--accentColor);
 }
 a:focus {
-  color: var(--red);
+  color: var(--accentColor);
 }
 
 /* TYPOGRAPHY */
@@ -102,6 +109,7 @@ h1 {
 
 h2 {
   font-size: clamp(1.5625rem, 1.4815rem + 0.3704vw, 1.875rem);
+  letter-spacing: 2.5px;
 }
 
 h3 {
@@ -112,6 +120,7 @@ h3 {
 
 footer p {
   margin: 0px;
+  font-weight: bold;
 }
 
 /* SECTIONS/Components */
@@ -128,13 +137,19 @@ nav .wrapper {
   padding-top: 10px;
 }
 
+.navBar {
+  display: flex;
+}
+
 .tiny {
   width: 2%;
+  height: 2%;
   min-width: 28px;
 }
 
 .small {
   width: 9%;
+  height: 9%;
   min-width: 85px;
 }
 
@@ -146,9 +161,9 @@ form {
 }
 
 input {
-  border: none;
-  border-radius: 20px;
-  outline: 3px solid var(--secondaryColor);
+  /* border: none; */
+  border-radius: 25px;
+  border: 3px solid var(--secondaryColor);
   font-family: var(--bodyFont);
   padding: 10px;
   text-align: center;
@@ -158,7 +173,8 @@ input {
 }
 
 input:focus {
-  outline: 3px solid var(--red);
+  border: 3px solid var(--accentColor);
+  outline: none;
 }
 
 .submit {
@@ -175,13 +191,13 @@ input:focus {
 }
 
 .submit:hover {
-  color: var(--red);
-  border: 2px solid var(--red);
+  color: var(--accentColor);
+  border: 2px solid var(--accentColor);
 }
 
 .submit:focus {
-  color: var(--red);
-  border: 2px solid var(--red);
+  color: var(--accentColor);
+  border: 2px solid var(--accentColor);
 }
 
 .rhymeMe {
@@ -218,14 +234,14 @@ input:focus {
 }
 
 .rhymeMeButton:hover {
-  color: var(--red);
-  border: 2px solid var(--red);
+  color: var(--accentColor);
+  border: 2px solid var(--accentColor);
   background-color: rgba(255, 255, 255, 0.413);
 }
 
 .rhymeMeButton:focus {
-  color: var(--red);
-  border: 2px solid var(--red);
+  color: var(--accentColor);
+  border: 2px solid var(--accentColor);
   background-color: rgba(255, 255, 255, 0.413);
 }
 
