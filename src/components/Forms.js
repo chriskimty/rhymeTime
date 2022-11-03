@@ -3,6 +3,7 @@ const Forms = (props) => {
     return (
         <div>
             {
+            // when validWord is set to true after api call + button click, do not display forms; only display forms in default state of validWord === false
                 props.validWord === true
                     ? null
                     :

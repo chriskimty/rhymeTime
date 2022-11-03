@@ -128,6 +128,10 @@ nav .wrapper {
   padding-top: 10px;
 }
 
+.navBar {
+  display: flex;
+}
+
 .tiny {
   width: 2%;
   min-width: 28px;
@@ -146,9 +150,9 @@ form {
 }
 
 input {
-  border: none;
-  border-radius: 20px;
-  outline: 3px solid var(--secondaryColor);
+  /* border: none; */
+  border-radius: 25px;
+  border: 3px solid var(--secondaryColor);
   font-family: var(--bodyFont);
   padding: 10px;
   text-align: center;

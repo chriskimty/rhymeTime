@@ -12,7 +12,7 @@ const UserRhyme = () => {
     const [userInput, setUserInput] = useState("");
     //set state for error handling
     const [error, setError] = useState(null);
-    // set state for valid word 
+    // set state for valid word (default is false because it is empty)
     const [validWord, setValidWord] = useState(false);
 
     // function to handle word input
@@ -38,14 +38,16 @@ const UserRhyme = () => {
                 throw Error('Please enter a valid word and try again!')
             }
             setAllRhymes(rhymeResults)
+            // sets validWord to true
             setValidWord(true)
         }).catch((err => {
             setError(err.message)
         }))
     }
 
-    //function to remove component on click
+    //function to "remove" component on click (to be passed down as props)
     const handleRemove = (event) => {
+        // sets userInput and allRhymes to empty string and returns validWord back to default (false)
         setAllRhymes("");
         setUserInput("");
         setValidWord(false)
@@ -60,6 +62,7 @@ const UserRhyme = () => {
                 validWord={validWord}
                 allRhymes={allRhymes}
             />
+            {/* mount RhymeMe component when the length of allRhymes is greater than 0 words  */}
             {
          allRhymes.length > 0
             ? <RhymeMe
