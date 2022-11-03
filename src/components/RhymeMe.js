@@ -11,22 +11,20 @@ const RhymeMe = (props) => {
 
     return (
         <section className="rhymeMe">
-
-          <h3>"{props.userInput}" rhymes with:</h3>
+          <h2>"{props.userInput}" rhymes with:</h2>
             <ul className="wordsContainer">
                 <RhymeList allRhymes={props.allRhymes}/>
                 
                 {isShown && <AllRhymeList allRhymes={props.allRhymes}/>}
             </ul>
-        <button onClick={(handleMoreRhymes)}>
+        <button onClick={(handleMoreRhymes)} className="rhymeMeButton">
           {
             isShown
-              ? "show me less rhymes"
-              : "show me more rhymes!"
+              ? "less rhymes"
+              : "more rhymes"
           }
         </button>
-
-            <button onClick={props.handleRemove}>rhyme a new word!</button>
+            <button onClick={props.handleRemove} className="rhymeMeButton">new word</button>
         </section> 
     )
 }

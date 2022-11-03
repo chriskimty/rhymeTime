@@ -6,7 +6,7 @@ function RhymeList({noslice, allRhymes}){
         {allRhymes.slice(0,12)
         .map((rhymeBox) => {
         return (
-            <li key={uuid()}>{rhymeBox}
+            <li key={uuid()} className="rhymeList">{rhymeBox}
             </li>)
     })}
 </>)

@@ -5,7 +5,7 @@ function AllRhymeList(props){
     <>
         {props.allRhymes.slice(13,99).map((rhymeBox) => {
         return (
-            <li key={uuid()}>{rhymeBox}
+            <li key={uuid()} className="rhymeList">{rhymeBox}
             </li>)
         })}
     </>)
