@@ -162,7 +162,8 @@ input {
 }
 
 input:focus {
-  outline: 3px solid var(--red);
+  border: 3px solid var(--red);
+  outline: none;
 }
 
 .submit {
